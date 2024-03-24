@@ -563,7 +563,7 @@ function prepareFormData() {
     let cartDataString = basket.map(x => {
         let { id, item } = x;
         let search = shopItemsData.find(y => y.id === id) || {};
-        return `${search.name}\nKolicina: ${item}\nCijena: ${search.price} KM\nUkupna Cijena: ${item * search.price} KM`;
+        return `${search.name}\n Kolicina: ${item}\n Cijena: ${search.price} KM\n Ukupna Cijena: ${item * search.price} KM`;
     }).join("\n");
 
     // Format user information
