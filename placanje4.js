@@ -561,6 +561,18 @@ function prepareFormData() {
         return `${search.name} - Kolicina: ${item}, Cijena: ${search.price} KM, Ukupna Cijena: ${totalAmount} KM`;
     }).join("\n");
 
+   const userInfo = {
+        ime: localStorage.getItem("ime"),
+        prezime: localStorage.getItem("prezime"),
+        email: localStorage.getItem("email"),
+        grad: localStorage.getItem("grad"),
+        ulica: localStorage.getItem("ulica"),
+        broj: localStorage.getItem("broj"),
+        postanskibroj: localStorage.getItem("postanskibroj")
+    };
+
+    let combinedData = `Informacije o kupcu:\n${JSON.stringify(userInfo, null, 2)}\n\nSadrzaj Korpe:\n${cartDataString}`;
+
     // Set the formatted string as the value of the hidden input
     document.getElementById('cartDataInput').value = cartDataString;
 }
