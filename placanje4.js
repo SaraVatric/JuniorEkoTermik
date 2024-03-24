@@ -432,7 +432,7 @@ let shopItemsData = [
                 <tr>
                     <th>${shippingOptionDisplay}</th>
                     <th>${shippingCost}</th>
-                    <th>1</th>
+                    <th></th>
                     <th>${shippingCost}</th>
                 </tr>
             </table>`;
