@@ -523,27 +523,7 @@ generateCartItems();
 
 
   
-  function saveUserInfo(event) {
-    // Prevent the default form submission behavior if necessary
-    // event.preventDefault(); // Uncomment this if you handle navigation programmatically
-
-    const userInfo = {
-        ime: document.getElementById('ime').value,
-        prezime: document.getElementById('prezime').value,
-        email: document.getElementById('email').value,
-        grad: document.getElementById('grad').value,
-        ulica: document.getElementById('ulica').value,
-        broj: document.getElementById('broj').value,
-        postanskibroj: document.getElementById('postanskibroj').value
-    };
-
-    // Save userInfo to Local Storage
-    localStorage.setItem('userInfo', JSON.stringify(userInfo));
-
-    // Optionally handle navigation here if you prevented the default behavior
-    // window.location.href = 'placanje4.html';
-}
-
+ 
 
 
 
