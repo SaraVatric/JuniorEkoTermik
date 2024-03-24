@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>JET - Junior Eko Termik</title>
+    <style>
+      *{
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 25px;
+        }
+
+        .logo img {
+            max-width: 80%;
+            height: auto;
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            padding-top: 20px;
+        }
+        nav ul li a:hover{
+            color: #1674D1;
+            transition: 0.3s;
+        }
+        .pocetna {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .proizvodi {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .reference {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .kontakti {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .korpa{
+            color: rgb(255, 255, 255);
+            width: 50px;
+            font-size: 30px;
+        }
+        .cartAmount{
+            font-size: 14px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+      
+     
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0px;
+            height: 100%;
+            width: 250px;
+            background-color: rgb(0, 0, 0);
+            transition: left 0.5s ease;
+            z-index: 1;
+            padding-top: 10px;
+        }
+
+        .menu-icon {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ffffff;
+            display: none;
+        }
+
+        .menu-icon:focus {
+            outline: none;
+        }
+
+        .menu-button {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+               right: 90px;
+               top: 47px;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+       
+
+        }
+
+        @media screen and (max-width: 865px) {
+    
+    .logo img {
+        max-width: 80%;
+        padding-left:0;
+}
+.cartAmount{
+    font-size: 14px;
+}
+}  
+
+    @media (max-width: 1200px) {
+header li {
+    display: none;
+}
+header .menu-icon {
+    display: block;
+
+}
+}
+
+@media (max-width: 450px) {
+        .korpa {
+            font-size:28px;
+        }
+        .menu-icon{
+            font-size: 20px;
+        }
+        .cartAmount{
+            top: 35px;
+            right: 38px;
+            
+        }
+    }
+
+
+
+        .container1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+            width: 100%;
+            padding: 0; 
+        }
+
+        .container2 {
+            background-color: #f2f2f2;
+            text-align: center;
+            margin-top: 35px; 
+            margin-bottom: 35px; 
+        }
+
+        h2 {
+            margin-bottom: 1rem; 
+            color: #343434;
+        }
+
+        h4 {
+            width: 100%; 
+            margin-bottom: 15px; 
+            color: #575757;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 1.5rem;
+            background: transparent;
+            border: 1px solid #ffffff;
+            background-color: white;
+            width: 100%; 
+            
+        }
+
+        textarea {
+            height: 7rem;
+        }
+
+        .submit {
+            width: 50%;
+            padding: 1rem;
+            cursor: pointer;
+            background-color: #282828;
+            color: aliceblue;
+            border: 1px solid #282828;
+            margin: 0 auto; 
+            display: block; 
+            text-align: center; 
+        }
+
+
+        .submit:hover{
+            width: 53%;
+            background-color: transparent;
+            color: #282828;
+            border: 2px solid #282828;
+            transition: 0.5;
+            
+        }
+
+@media (max-width: 768px) {
+    .submit,
+    .form,
+    input,
+    select,
+    textarea {
+        width: 87%; 
+        margin-left: 10px;
+    }
+    .submit{
+        width: 87%;
+        margin-left: 30px;
+    }
+
+    h4 {
+        width: 100%; 
+        margin-bottom: 15px; 
+    }
+}
+
+
+
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #282828;
+            color: #989898;
+            padding: 80px;
+        }
+        
+@media screen and (max-width: 1100px) {
+    .footer {
+        grid-template-columns: 1fr;
+        padding: 80px;
+    }
+    .footer > div {
+        margin-bottom: 20px;
+    }
+    .footer .c {
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 380px) {
+.ddd .dddd {
+    width: 60px; 
+    height: 60px; 
+
+}
+}
+      
+
+        .containerpet {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-image: url("frontpage/istockphoto-1160713618-612x612.jpg");
+            flex-grow: 1;
+            width: 100%;
+            background-size: cover;
+            background-position: center; 
+            height: auto;
+        }
+
+        .fifth {
+            flex: 1; 
+            padding: 20px;
+            text-align: center;
+            order: 1; 
+            margin-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .resetkasta{
+            font-size: 30px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: #1674D1;
+            font-family:"Lato", sans-serif;
+            padding-bottom: 20px;
+        }
+        .resetkastadva{
+            font-size: 15px;
+            font-weight: bold;
+            color: #575757;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding-bottom: 50px;
+            text-align: justify;
+            padding-left: 30px;
+        }
+        .resetkastadvaa{
+            font-size: 15px;
+            font-weight: bold;
+            color: #575757;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .sastoje{
+            font-size: 20px;
+            color: #000000c6;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-bottom: 55px;
+        }
+
+        .kontaktirajtedva{
+            height: 55px;
+            width: 200px;
+            color: #f1b730;
+            background-color: transparent;
+            border-color: #f1b730;
+            border-style: solid;
+            font-weight: bold; 
+            cursor: pointer;
+        }
+        .kontaktirajtedva:hover{
+            color: white;
+            background-color: #f1b730;
+        }
+
+        .resetka {
+            flex: 1; 
+            padding: 20px;
+            text-align: center;
+            order: 2; 
+        }
+
+        .resetka img {
+            max-width: 460px;
+            height: 350px;
+        }
+
+@media (max-width: 768px) {    
+    .resetka,
+    .fifth {
+        flex: auto;
+        width: 100%;
+        text-align: center;
+        order: 0; 
+    }
+}
+@media (max-width: 768px){
+    .resetka img{
+        width: 330px;
+        height: 230px;
+    }
+}
+
+@media (max-width: 350px){
+    .resetka img{
+        width: 250px;
+        height: 180px;
+    }
+}
+
+        
+.footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #282828;
+            color: #989898;
+            padding: 80px;
+        }
+        
+        @media screen and (max-width: 1180px) {
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 60px;
+            }
+            .footer > div {
+                margin-bottom: 20px;
+            }
+            .footer .c {
+                margin-left: 0;
+            }
+        }
+        @media screen and (max-width: 380px) {
+        .ddd .dddd {
+            width: 60px; 
+            height: 60px; 
+        
+        }
+}
+        
+        .aaa {
+            width: 50px;
+            height: 50px;
+            
+        }
+        .aaaa {
+            width: 280px;
+            color: white;
+            color: #989898;
+            line-height: 27px;
+            margin-top: 20px;
+        }
+        
+        .bb {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+            line-height: 40px;
+        }
+        .bbb {
+            display: flex;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .bbbb {
+            flex: 1;
+        }
+        .bbbbb {
+            flex: 2;
+        }
+        .c {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            margin-left: 60px;
+            line-height: 35px;
+        }
+        .cc {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 20px;
+            
+        }
+        .ccc {
+            background-color: transparent;
+            color: #989898;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 0;
+            border: none;
+        }
+        .ccc:hover {
+            color: #1674D1;
+        }
+        .d {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+        .dd {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .dddd {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+        }
+        .ddd {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        @media screen and (max-width: 380px) {
+      
+        .aaaa{
+            width: 250px;
+        }
+        
+}
+
+
+
+        #lightbox {
+          display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            display: block;
+        }
+        #close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+        }
+        #prev, #next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            cursor: pointer;
+        }
+        #prev {
+            left: 10px;
+        }
+        #next {
+            right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="frontpage/logo-01%20(1).png" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="pocetna"><a href="index.html">POČETNA</a></li>
+                <li class="proizvodi"><a href="proizvodi.html">PROIZVODI</a></li>
+                <li class="reference"><a href="reference.html">REFERENCE</a></li>
+                <li class="reference"><a href="online.html">ONLINE PRODAJA</a></li>
+                <li class="kontakti"><a href="kontakt.html">KONTAKT</a></li>
+                <a href="cart.html" class="korpa"><i class="bi bi-cart2"></i> <div id="cartAmount" class="cartAmount">0</div> </a>
+                
+            </ul>
+        </nav>
+        <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+        </header>
+        <div class="sidebar" id="mySidebar">
+        <a href="index.html" class="menu-button">POČETNA</a>
+        <a href="proizvodi.html" class="menu-button">PROIZVODI</a>
+        <a href="reference.html" class="menu-button">REFERENCE</a>
+        <a href="kontakt.html" class="menu-button">KONTAKT</a>
+        <a href="online.html" class="menu-button">ONLINE PRODAJA</a>
+        </div>
+
+        <script>
+            function toggleSidebar() {
+                var sidebar = document.getElementById('mySidebar');
+                sidebar.classList.toggle('show');
+                document.body.classList.toggle('sidebar-open');
+            }
+            function closeSidebar() {
+                var sidebar = document.getElementById('mySidebar');
+                sidebar.classList.remove('show');
+                document.body.classList.remove('sidebar-open');
+            }
+            document.addEventListener('click', function(event) {
+                var sidebar = document.getElementById('mySidebar');
+        
+                if (!sidebar.contains(event.target)) {
+                    closeSidebar();
+                }
+            });
+            document.getElementById('mySidebar').addEventListener('click', function(event){
+                event.stopPropagation();
+            });
+            document.querySelector('.menu-icon').addEventListener('click', function(event){
+                event.stopPropagation();
+            });
+        </script>
+
+
+    <p class="mapa"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.5314972327205!2d17.96472528918723!3d44.64749159648462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475e873e5cf8205d%3A0x80987ff8a41be70d!2sJunior-Eko-Termik!5e0!3m2!1sbs!2sba!4v1711107039114!5m2!1sbs!2sba" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+
+
+    <div class="containerpet">
+        <div class="fifth">
+            <h1 class="resetkasta">KONTAKT</h1>
+            <h3 class="resetkastadvaa">Za više informacija, kontaktirajte nas putem email adrese ili broja telefona.
+                Vaš Junior Eko Termik.</h3>
+            <div class="b">
+                
+                <div class="bbb">
+                    <div class="bbbbb"><i class="bi bi-telephone"></i> 032/663-064</div>
+                </div>
+                <div class="bbb">
+                    <div class="bbbbb"><i class="bi bi-envelope-open"></i> jet@bih.net.ba</div>
+                </div>
+                <div class="bbb">
+                    <div class="bbbbb"><i class="bi bi-geo-alt-fill"></i> Vukovo 172 Jelah 74264 Tešanj</div>
+                </div>
+                <div class="bbb">
+                    <div class="bbbbb"><i class="bi bi-telephone-x"></i> 032/663-064</div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="resetka">
+            <img class="resetkaslika" src="kontakt/11.jpg" alt="">
+        </div>
+    </div>
+    
+    <div class="container1">
+        <div class="container2">
+            <h2>POŠALJITE NAM PORUKU</h2>
+            <h4>Za sva pitanja i informacije kontaktirajte nas putem kontakt informacija ili kontakt forme.</h4>
+    
+           <div class="form">
+            <form action="https://formsubmit.co/kenanb51@gmail.com" method="POST" id="contactForm"> 
+                <input type="textime" name="Name" placeholder="Ime *" required>
+                <input type="emailemail" name="Email" id="email" placeholder="Email *" required pattern="[a-zA-Z0-9._%+-]+@(hotmail\.com|gmail\.com)" title="Use either @hotmail.com or @gmail.com">
+                <input type="titletitle" name="Title" placeholder="Predmet *" required>
+                <textarea name="message" placeholder="Poruka *" required></textarea>
+                <button class="submit" type="submit" id="submitButton" disabled>Posalji</button>
+                <div id="emailError" style="color: #1674D1;"></div>
+            </form>
+           </div> 
+        </div>
+    </div>
+
+    <script>
+        const emailInput = document.getElementById("email");
+        const emailError = document.getElementById("emailError");
+        const submitButton = document.getElementById("submitButton");
+        const contactForm = document.getElementById("contactForm");
+
+        emailInput.oninput = function () {
+    if (!this.value.match(/[a-zA-Z0-9._%+-]+@(hotmail\.com|gmail\.com|yahoo\.com|outlook\.com|icloud\.com)/)) {
+        emailError.textContent = "Molimo unesite validnu Email adresa";
+        submitButton.disabled = true;
+    } else {
+        emailError.textContent = "";
+        submitButton.disabled = false;
+    }
+};
+
+
+        contactForm.onsubmit = function (event) {
+            if (!emailInput.checkValidity()) {
+                emailError.textContent = "Molimo unesite validnu Email adresa";
+                event.preventDefault(); 
+            }
+        };
+    </script>
+
+<footer class="footer">
+    <div class="aa">
+    <img src="footer i glarija/small.png" alt="Logo" class="aaa">
+    <p class="aaaa" >Junior Eko Termik - d.o.o. Jelah-općina Tešanj, privatno preduzeće osnovano 2001.godine. Sve potrebne informacije možete dobiti putem kontakt informacija.</p>
+    </div>
+    
+    <div class="b">
+    <p class="bb">KONTAKTI</p>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-telephone"></i></div>
+        <div class="bbbbb">032/663-064</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-envelope-open"></i></div>
+        <div class="bbbbb">jet@bih.net.ba</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-geo-alt-fill"></i></div>
+        <div class="bbbbb">Vukovo 172 Jelah 74264 Tešanj</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-telephone-x"></i></div>
+        <div class="bbbbb">032/663-064</div>
+    </div>
+    </div>
+    
+    <div class="c">
+        <p class="cc">SITE MAPA</p>
+        <a href="index.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Početna</button></a>
+        <a href="online.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Online Prodaja</button></a>
+        <a href="proizvodi.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Proizvodi</button></a>
+        <a href="reference.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Reference</button></a>
+        <a href="kontakt.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Kontakt</button></a>
+        </div>
+    
+    <div class="column d">
+        <p class="dd">GALERIJA</p>
+         <div class="ddd">
+             <div class="dddd">
+                 <img src="footer i glarija/1 (2).jpg" alt="" onclick="openLightbox(0)" style="cursor: pointer; max-width: 100%;
+                 height: auto;">
+    
+             </div>
+             <div class="dddd">
+                 <img src="footer i glarija/2 (1).jpg" alt="" onclick="openLightbox(1)" style="cursor: pointer; max-width: 100%;
+                 height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/33.jpg" alt="" onclick="openLightbox(2)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/44.jpg" alt="" onclick="openLightbox(3)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/55.jpg" alt="" onclick="openLightbox(4)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                 <img src="footer i glarija/66.jpg" alt="" onclick="openLightbox(5)" style="cursor: pointer;max-width: 100%;
+                 height: auto;">
+             </div>
+         </div>
+     </div>
+    
+    <div id="lightbox">
+    <span id="close-button" onclick="closeLightbox()">&#10006;</span>
+    <span id="prev" onclick="changeImage(-1)">&#10094;</span>
+    <img id="lightbox-image" src="" alt="">
+    <span id="next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+    
+    <script>
+      let currentImageIndex = 0;
+    const images = [
+    "footer i glarija/1.jpg",
+    "footer i glarija/2.jpg",
+    "footer i glarija/3.jpg",
+    "footer i glarija/4.jpg",
+    "footer i glarija/5.jpg",
+    "footer i glarija/6.jpg"
+    ];
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    
+    function openLightbox(index) {
+    currentImageIndex = index;
+    lightbox.style.display = "flex";
+    lightboxImage.src = images[index];
+    }
+    
+    function closeLightbox() {
+    lightbox.style.display = "none";
+    }
+    
+    function changeImage(step) {
+    currentImageIndex += step;
+    if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+    } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+    }
+    lightboxImage.src = images[currentImageIndex];
+    }
+    </script>
+    </footer>
+</body>
+<script src="cart.js" src="main.js"> </script>
+<script src="main.js"></script>
+</html>

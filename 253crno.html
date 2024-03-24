@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JET - Junior Eko Termik</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<style>
+ *{
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 25px;
+        }
+
+        .logo img {
+            max-width: 80%;
+            height: auto;
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            padding-top: 20px;
+        }
+        nav ul li a:hover{
+            color: #1674D1;
+            transition: 0.3s;
+        }
+        .pocetna {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .proizvodi {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .reference {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .kontakti {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .korpa{
+            color: rgb(0, 0, 0);
+            width: 50px;
+            font-size: 30px;
+        }
+        .cartAmount{
+            font-size: 14px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+      
+     
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0px;
+            height: 100%;
+            width: 250px;
+            background-color: rgb(255, 255, 255);
+            transition: left 0.5s ease;
+            z-index: 1;
+            padding-top: 10px;
+        }
+
+        .menu-icon {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #000000;
+            display: none;
+        }
+
+        .menu-icon:focus {
+            outline: none;
+        }
+
+        .menu-button {
+            display: block;
+            text-decoration: none;
+            color: #000000;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+               right: 90px;
+               top: 47px;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+       
+
+        }
+
+        @media screen and (max-width: 865px) {
+    
+    .logo img {
+        max-width: 80%;
+        padding-left:0;
+}
+.cartAmount{
+    font-size: 14px;
+}
+}  
+
+    @media (max-width: 1200px) {
+header li {
+    display: none;
+}
+header .menu-icon {
+    display: block;
+
+}
+}
+
+@media (max-width: 450px) {
+        .korpa {
+            font-size:28px;
+        }
+        .menu-icon{
+            font-size: 20px;
+        }
+        .cartAmount{
+            top: 35px;
+            right: 38px;
+            
+        }
+    }
+
+
+
+a {
+text-decoration: none;
+color: white;
+}
+.shop {
+   
+   display: flex;
+   justify-content: end;
+   background-color: #f2f2f2;
+   height: auto;
+   padding-left: 20px;
+   padding-bottom: 20px;
+   padding-right: 20px;
+   padding-top: 40px;
+   width: 800px;
+   }
+   @media (max-width: 350px) {
+.shop {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+}
+
+   .item {
+   border: 0.5px solid #282828;
+   border-radius: 4px;
+   width: 270px;
+   height: 250px;
+   margin-right: 5px;
+   }
+
+.details {
+display: flex;
+flex-direction: column;
+padding: 10px;
+gap: 10px;
+}
+
+.price-quantity {
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+
+.buttons {
+display: flex;
+flex-direction: row;
+gap: 8px;
+font-size: 16px;
+}
+
+.bi-dash-lg {
+color: black;
+}
+
+.bi-plus-lg {
+color: black;
+}
+
+.shop-container {
+text-align: center;
+margin-top: 20px; 
+width: auto;
+height: auto;
+}
+
+.shop-title {
+font-size: 24px;
+margin-bottom: 20px; 
+}
+
+.shop-items {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.item {
+margin: 10px; 
+}
+
+.addtocart{
+background-color: #282828;
+color: white;
+width: 300px;
+height: 60px;
+margin-top: 50px;
+}
+
+.shop-title{
+    font-size:30px;
+}
+.shop-titlee{
+    font-size:20px;
+}
+.details{
+    padding: 0;
+}
+.imeproizvoda{
+    background-color:  #282828; 
+    height: 100px; 
+    color: white; 
+    text-align: center; 
+    font-size:13px;
+    padding-top: 13px;
+}
+.price-quantity{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    font-size:10px; 
+    padding-bottom:20px; 
+    padding-top:20px; 
+    color: #282828;
+}
+.cijena1{
+    padding-bottom: 35px;
+}
+
+.green{
+    display: inline-flex; 
+    align-items: center; 
+    color: black; 
+    padding: 5px; 
+    margin-top:10px;
+}
+.bi-circle-fill{
+    color:#4e8929; 
+    margin-right: 8px;
+}
+.online{
+    color: black; 
+    text-align: center;
+}
+
+.Opis{
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    width: auto; 
+    font-size: 20px;  
+    margin-top:15px;
+    
+}
+.label{
+    font-weight: bold; 
+    margin-bottom: 5px;
+}
+.opiss{
+    border: 1px solid #ccc; 
+    font-size: 15px;
+    padding: 25px;
+}
+.opisss{
+    text-decoration: underline; 
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+
+@media (max-width: 640px) {
+.Opis {
+width: auto; 
+}
+}
+
+
+
+.containercetiri {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    background-size: cover;
+    background-position: center; 
+    height: auto;
+}
+
+.fourth {
+    flex: 1; 
+    padding: 20px;
+    text-align: center;
+    order: 2; 
+}
+
+.collage {
+max-width: 550px; 
+margin-top: 30px;
+margin-left: 20px;
+margin-bottom: 30px;
+}
+
+.row {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.col {
+flex: 1;
+padding: 10px;
+}
+
+.col.large {
+flex: 2;
+}
+
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+@media (max-width: 768px) {    
+.fourth {
+flex: auto;
+width: 100%;
+text-align: center;
+}
+.collage{
+flex: auto;
+width: 100%;
+text-align: center;
+margin: 0 auto;
+}
+}
+
+
+
+
+.footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #282828;
+            color: #989898;
+            padding: 80px;
+        }
+        
+        @media screen and (max-width: 1180px) {
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 60px;
+            }
+            .footer > div {
+                margin-bottom: 20px;
+            }
+            .footer .c {
+                margin-left: 0;
+            }
+        }
+        @media screen and (max-width: 380px) {
+        .ddd .dddd {
+            width: 60px; 
+            height: 60px; 
+        
+        }
+}
+        
+        .aaa {
+            width: 50px;
+            height: 50px;
+            
+        }
+        .aaaa {
+            width: 280px;
+            color: white;
+            color: #989898;
+            line-height: 27px;
+            margin-top: 20px;
+        }
+        
+        .bb {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+            line-height: 40px;
+        }
+        .bbb {
+            display: flex;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .bbbb {
+            flex: 1;
+        }
+        .bbbbb {
+            flex: 2;
+        }
+        .c {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            margin-left: 60px;
+            line-height: 35px;
+        }
+        .cc {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 20px;
+            
+        }
+        .ccc {
+            background-color: transparent;
+            color: #989898;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 0;
+            border: none;
+        }
+        .ccc:hover {
+            color: #1674D1;
+        }
+        .d {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+        .dd {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .dddd {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+        }
+        .ddd {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        @media screen and (max-width: 380px) {
+      
+        .aaaa{
+            width: 250px;
+        }
+        
+}
+#lightbox {
+  display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    display: block;
+}
+#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+}
+#prev {
+    left: 10px;
+}
+#next {
+    right: 10px;
+}
+
+#lightboxx {
+  display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+#lightboxx img {
+    max-width: 90%;
+    max-height: 80%;
+    display: block;
+}
+#close-buttonn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+#prevv, #nextt {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+}
+#prevv {
+    left: 10px;
+}
+#nextt {
+    right: 10px;
+}
+
+
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="frontpage/logo-01%20(1).png" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="pocetna"><a href="index.html">POČETNA</a></li>
+                <li class="proizvodi"><a href="proizvodi.html">PROIZVODI</a></li>
+                <li class="reference"><a href="reference.html">REFERENCE</a></li>
+                <li class="reference"><a href="online.html">ONLINE PRODAJA</a></li>
+                <li class="kontakti"><a href="kontakt.html">KONTAKT</a></li>
+                <a href="cart.html" class="korpa"><i class="bi bi-cart2"></i> <div id="cartAmount" class="cartAmount">0</div> </a>
+                
+            </ul>
+        </nav>
+        <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+        </header>
+        <div class="sidebar" id="mySidebar">
+        <a href="index.html" class="menu-button">POČETNA</a>
+        <a href="proizvodi.html" class="menu-button">PROIZVODI</a>
+        <a href="reference.html" class="menu-button">REFERENCE</a>
+        <a href="kontakt.html" class="menu-button">KONTAKT</a>
+        <a href="online.html" class="menu-button">ONLINE PRODAJA</a>
+        </div>
+
+        <script>
+            function toggleSidebar() {
+                var sidebar = document.getElementById('mySidebar');
+                sidebar.classList.toggle('show');
+                document.body.classList.toggle('sidebar-open');
+            }
+            function closeSidebar() {
+                var sidebar = document.getElementById('mySidebar');
+                sidebar.classList.remove('show');
+                document.body.classList.remove('sidebar-open');
+            }
+            document.addEventListener('click', function(event) {
+                var sidebar = document.getElementById('mySidebar');
+        
+                if (!sidebar.contains(event.target)) {
+                    closeSidebar();
+                }
+            });
+            document.getElementById('mySidebar').addEventListener('click', function(event){
+                event.stopPropagation();
+            });
+            document.querySelector('.menu-icon').addEventListener('click', function(event){
+                event.stopPropagation();
+            });
+        </script>
+
+
+<div class="containercetiri">
+
+
+    <div class="collage">
+        <div class="row">
+            <div class="col large">
+                <img src="katalog/1.jpg" alt="Image 21" onclick="openCollageLightbox(0)" style="cursor: pointer;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img src="katalog/2.jpg" alt="Image 22" onclick="openCollageLightbox(1)" style="cursor: pointer;">
+            </div>
+            <div class="col">
+                <img src="katalog/3.jpg" alt="Image 23" onclick="openCollageLightbox(2)" style="cursor: pointer;">
+            </div>
+            <div class="col">
+                <img src="katalog/4.jpg" alt="Image 24" onclick="openCollageLightbox(3)" style="cursor: pointer;">
+            </div>
+        </div>
+    </div>
+    
+    <div id="lightboxx">
+        <span id="close-buttonn" onclick="closeCollageLightbox()">&#10006;</span>
+        <span id="prevv" onclick="changeCollageImage(-1)">&#10094;</span>
+        <img id="lightbox-imagee" src="" alt="">
+        <span id="nextt" onclick="changeCollageImage(1)">&#10095;</span>
+        </div>
+        
+        <script>
+          let currentCollageImageIndex = 0;
+        const Collageimages = [
+        "katalog/1.jpg",
+        "katalog/2.jpg",
+        "katalog/3.jpg",
+        "katalog/4.jpg"
+        ];
+        const Collagelightbox = document.getElementById("lightboxx");
+        const CollagelightboxImage = document.getElementById("lightbox-imagee");
+        
+        function openCollageLightbox(index) {
+        currentCollageImageIndex = index;
+        Collagelightbox.style.display = "flex";
+        CollagelightboxImage.src = Collageimages[index];
+        }
+        
+        function closeCollageLightbox() {
+        Collagelightbox.style.display = "none";
+        }
+        
+        function changeCollageImage(stepp) {
+        currentCollageImageIndex += stepp;
+        if (currentCollageImageIndex < 0) {
+            currentCollageImageIndex = Collageimages.length - 1;
+        } else if (currentCollageImageIndex >= Collageimages.length) {
+            currentCollageImageIndex = 0;
+        }
+        CollagelightboxImage.src = Collageimages[currentCollageImageIndex];
+        }
+        </script>
+<div class="shop" id="shop"></div>
+
+</div>
+
+
+<footer class="footer">
+    <div class="aa">
+    <img src="footer i glarija/small.png" alt="Logo" class="aaa">
+    <p class="aaaa" >Junior Eko Termik - d.o.o. Jelah-općina Tešanj, privatno preduzeće osnovano 2001.godine. Sve potrebne informacije možete dobiti putem kontakt informacija.</p>
+    </div>
+    
+    <div class="b">
+    <p class="bb">KONTAKTI</p>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-telephone"></i></div>
+        <div class="bbbbb">032/663-064</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-envelope-open"></i></div>
+        <div class="bbbbb">jet@bih.net.ba</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-geo-alt-fill"></i></div>
+        <div class="bbbbb">Vukovo 172 Jelah 74264 Tešanj</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-telephone-x"></i></div>
+        <div class="bbbbb">032/663-064</div>
+    </div>
+    </div>
+    
+    <div class="c">
+        <p class="cc">SITE MAPA</p>
+        <a href="index.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Početna</button></a>
+        <a href="online.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Online Prodaja</button></a>
+        <a href="proizvodi.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Proizvodi</button></a>
+        <a href="reference.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Reference</button></a>
+        <a href="kontakt.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Kontakt</button></a>
+        </div>
+    
+    <div class="column d">
+        <p class="dd">GALERIJA</p>
+         <div class="ddd">
+             <div class="dddd">
+                 <img src="footer i glarija/1 (2).jpg" alt="" onclick="openLightbox(0)" style="cursor: pointer; max-width: 100%;
+                 height: auto;">
+    
+             </div>
+             <div class="dddd">
+                 <img src="footer i glarija/2 (1).jpg" alt="" onclick="openLightbox(1)" style="cursor: pointer; max-width: 100%;
+                 height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/33.jpg" alt="" onclick="openLightbox(2)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/44.jpg" alt="" onclick="openLightbox(3)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/55.jpg" alt="" onclick="openLightbox(4)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                 <img src="footer i glarija/66.jpg" alt="" onclick="openLightbox(5)" style="cursor: pointer;max-width: 100%;
+                 height: auto;">
+             </div>
+         </div>
+     </div>
+    
+    <div id="lightbox">
+    <span id="close-button" onclick="closeLightbox()">&#10006;</span>
+    <span id="prev" onclick="changeImage(-1)">&#10094;</span>
+    <img id="lightbox-image" src="" alt="">
+    <span id="next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+    
+    <script>
+      let currentImageIndex = 0;
+    const images = [
+    "footer i glarija/1.jpg",
+    "footer i glarija/2.jpg",
+    "footer i glarija/3.jpg",
+    "footer i glarija/4.jpg",
+    "footer i glarija/5.jpg",
+    "footer i glarija/6.jpg"
+    ];
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    
+    function openLightbox(index) {
+    currentImageIndex = index;
+    lightbox.style.display = "flex";
+    lightboxImage.src = images[index];
+    }
+    
+    function closeLightbox() {
+    lightbox.style.display = "none";
+    }
+    
+    function changeImage(step) {
+    currentImageIndex += step;
+    if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+    } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+    }
+    lightboxImage.src = images[currentImageIndex];
+    }
+    </script>
+    </footer>
+
+
+  <script>
+     let naslov  = "RESETKASTA GAZISTA (25/3 Crno)"
+    let opis  = "Rešetkasta gazišta se sastoje od nosećih I veznih traka (flahova ili plosno željezo) kao I opšavnih tarka (okvir).Pored traka (flahovi ili plosno železo), mogucnost izrade u kombinaciji sa okruglom žicom ili uvrnuti kvadrat. Međusobno se uklapaju varenjem."
+    let vise = '<a href="resetkastagazista.html" style="color: inherit; text-decoration: underline;">Više o proizvodu</a>';
+    let shopItemsData = [
+    {
+      id: "crno1",
+      name: "NOSIVA: 25/3 <br> VEZNA: 10/3 <br> OTVOR OKCA: 35x35, <br> TEZINA: 25,10 <br> FORMAT:1000x1000mm ",
+      price: 153.49,
+      img: "katalog/frp-moulded-gratings-500x500.webp",
+    },
+    {
+      id: "crno2",
+      name: "NOSIVA: 25/3 <br> VEZNA: 12/3 <br> OTVOR OKCA: 35x35, <br> TEZINA: 26,40 <br> FORMAT:1000x1000mm",
+      price: 161.43,
+      img: "katalog/frp-moulded-gratings-500x500.webp",
+    },
+    {
+      id: "crno3",
+      name: "NOSIVA: 25/3 <br> VEZNA: 12/3 <br> OTVOR OKCA: 30x30, <br> TEZINA: 30,50 <br> FORMAT:1000x1000mm",
+      price: 186.84,
+      img: "katalog/frp-moulded-gratings-500x500.webp",
+    },
+    {
+      id: "crno4",
+      name: "NOSIVA: 25/3 <br> VEZNA: 25/25 <br> OTVOR OKCA: 33x33, <br> TEZINA: 36,30 <br> FORMAT:1000x1000mm",
+      price: 225.54,
+      img: "katalog/frp-moulded-gratings-500x500.webp",
+    },
+    ];
+
+  </script>
+
+
+</body>
+<script src="main.js"></script>
+<script src="cart.js"></script>
+
+
+</html>

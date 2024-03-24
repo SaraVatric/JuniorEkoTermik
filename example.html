@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Set z-index to -1 to place it behind other content */
+            overflow: hidden;
+        }
+
+        .slideshow-container img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .slideshow-container img:first-child {
+            display: block;
+        }
+
+        /* Style the dots used to indicate the active image */
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+    <img class="mySlides" src="file:///C:/Users/sarav/OneDrive/Desktop/junior_eko_termik4%20(6)/junior%20eko%20termik/frontpage/Lundy-Projects-Rail-Design-Manufacturing-02HH.jpg" alt="Image 1">
+    <img class="mySlides" src="file:///C:/Users/sarav/OneDrive/Desktop/junior_eko_termik4%20(6)/junior%20eko%20termik/frontpage/img15.png" alt="Image 2">
+    <img class="mySlides" src="file:///C:/Users/sarav/OneDrive/Desktop/junior_eko_termik4%20(6)/junior%20eko%20termik/frontpage/88883df72ba25d31a504a095ffe74b70.jpg" alt="Image 3">
+</div>
+
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 10000); // Change image every 10 seconds (10000 milliseconds)
+    }
+</script>
+
+<!-- Your other webpage content goes here -->
+
+</body>
+</html>

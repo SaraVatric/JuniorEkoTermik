@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>JET - Junior Eko Termik</title>
+    
+    
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+*{
+
+
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  transition: all .2s linear;
+
+}
+
+
+header {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 25px;
+        }
+
+        .logo img {
+            max-width: 80%;
+            height: auto;
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            padding-top: 20px;
+        }
+        nav ul li a:hover{
+            color: #1674D1;
+            transition: 0.3s;
+        }
+        .pocetna {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .proizvodi {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .reference {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .kontakti {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .korpa{
+            color: rgb(0, 0, 0);
+            width: 50px;
+            font-size: 30px;
+        }
+        .cartAmount{
+            font-size: 14px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+      
+     
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0px;
+            height: 100%;
+            width: 250px;
+            background-color: rgb(255, 255, 255);
+            transition: left 0.5s ease;
+            z-index: 1;
+            padding-top: 10px;
+        }
+
+        .menu-icon {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #000000;
+            display: none;
+        }
+
+        .menu-icon:focus {
+            outline: none;
+        }
+
+        .menu-button {
+            display: block;
+            text-decoration: none;
+            color: #000000;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+               right: 90px;
+               top: 47px;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+       
+
+        }
+
+        @media screen and (max-width: 865px) {
+    
+    .logo img {
+        max-width: 80%;
+        padding-left:0;
+}
+.cartAmount{
+    font-size: 14px;
+}
+}  
+
+    @media (max-width: 1200px) {
+header li {
+    display: none;
+}
+header .menu-icon {
+    display: block;
+
+}
+}
+
+
+@media (max-width: 450px) {
+        .korpa {
+            font-size:28px;
+        }
+        .menu-icon{
+            font-size: 20px;
+        }
+        .cartAmount{
+            top: 35px;
+            right: 38px;
+            
+        }
+    }
+          
+ 
+           .progress-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 400px;
+            margin: 20px auto;
+        }
+        .step {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #282828; 
+            border-radius: 50%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+
+      
+        .active {
+            background-color: #282828; 
+            color: white; 
+        }
+
+        .connector {
+            width: 50px;
+            height: 3px;
+            background-color: #282828; 
+        }
+
+
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:25px;
+  min-height: 100vh;
+  background: linear-gradient(90deg, #e9e9e9 60%, #d3d3d3 40.1%);
+}
+
+.container form{
+  padding:20px;
+  width:700px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+.container form .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+}
+
+.container form .row .col{
+  flex:1 1 250px;
+}
+
+.container form .row .col .title{
+  font-size: 20px;
+  color:#333;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.container form .row .col .inputBox{
+  margin:15px 0;
+}
+
+.container form .row .col .inputBox span{
+  margin-bottom: 10px;
+  display: block;
+}
+
+.container form .row .col .inputBox input{
+  width: 100%;
+  border:1px solid #ccc;
+  padding:10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.container form .row .col .inputBox input:focus{
+  border:1px solid #000;
+}
+
+.container form .row .col .flex{
+  display: flex;
+  gap:15px;
+}
+
+.container form .row .col .flex .inputBox{
+  margin-top: 5px;
+}
+
+.container form .row .col .inputBox img{
+  height: 34px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.container form .submit-btn{
+  width: 100%;
+  padding:12px;
+  font-size: 17px;
+  background: #282828;
+  color:#fff;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.container form .submit-btn:hover{
+  background: #282828;
+}
+
+.footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #282828;
+            color: #989898;
+            padding: 80px;
+        }
+        
+        @media screen and (max-width: 1180px) {
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 60px;
+            }
+            .footer > div {
+                margin-bottom: 20px;
+            }
+            .footer .c {
+                margin-left: 0;
+            }
+        }
+        @media screen and (max-width: 380px) {
+        .ddd .dddd {
+            width: 60px; 
+            height: 60px; 
+        
+        }
+}
+        
+        .aaa {
+            width: 50px;
+            height: 50px;
+            
+        }
+        .aaaa {
+            width: 280px;
+            color: white;
+            color: #989898;
+            line-height: 27px;
+            margin-top: 20px;
+        }
+        
+        .bb {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+            line-height: 40px;
+        }
+        .bbb {
+            display: flex;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .bbbb {
+            flex: 1;
+        }
+        .bbbbb {
+            flex: 2;
+        }
+        .c {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            margin-left: 60px;
+            line-height: 35px;
+        }
+        .cc {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 20px;
+            
+        }
+        .ccc {
+            background-color: transparent;
+            color: #989898;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 0;
+            border: none;
+        }
+        .ccc:hover {
+            color: #1674D1;
+        }
+        .d {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+        .dd {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .dddd {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+        }
+        .ddd {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        @media screen and (max-width: 380px) {
+      
+        .aaaa{
+            width: 250px;
+        }
+        
+}
+#lightbox {
+  display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    display: block;
+}
+#close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+}
+#prev {
+    left: 10px;
+}
+#next {
+    right: 10px;
+}
+        .progress-container a {
+        text-decoration: none;
+    }
+    @media (max-width: 550px) {
+    .progress-container{
+        width: 300px ;
+    }
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="frontpage/logo-01%20(1).png" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="pocetna"><a href="index.html">POČETNA</a></li>
+                <li class="proizvodi"><a href="proizvodi.html">PROIZVODI</a></li>
+                <li class="reference"><a href="reference.html">REFERENCE</a></li>
+                <li class="reference"><a href="online.html">ONLINE PRODAJA</a></li>
+                <li class="kontakti"><a href="kontakt.html">KONTAKT</a></li>
+                <a href="cart.html" class="korpa"><i class="bi bi-cart2"></i> <div id="cartAmount" class="cartAmount">0</div> </a>
+                
+            </ul>
+        </nav>
+        <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+        </header>
+        <div class="sidebar" id="mySidebar">
+        <a href="index.html" class="menu-button">POČETNA</a>
+        <a href="proizvodi.html" class="menu-button">PROIZVODI</a>
+        <a href="reference.html" class="menu-button">REFERENCE</a>
+        <a href="kontakt.html" class="menu-button">KONTAKT</a>
+        <a href="online.html" class="menu-button">ONLINE PRODAJA</a>
+        </div>
+
+        <script>
+            function toggleSidebar() {
+                var sidebar = document.getElementById('mySidebar');
+                sidebar.classList.toggle('show');
+                document.body.classList.toggle('sidebar-open');
+            }
+            function closeSidebar() {
+                var sidebar = document.getElementById('mySidebar');
+                sidebar.classList.remove('show');
+                document.body.classList.remove('sidebar-open');
+            }
+            document.addEventListener('click', function(event) {
+                var sidebar = document.getElementById('mySidebar');
+        
+                if (!sidebar.contains(event.target)) {
+                    closeSidebar();
+                }
+            });
+            document.getElementById('mySidebar').addEventListener('click', function(event){
+                event.stopPropagation();
+            });
+            document.querySelector('.menu-icon').addEventListener('click', function(event){
+                event.stopPropagation();
+            });
+        </script>
+
+<div class="half">
+    <div class="progress-container">
+        <a href="placanje1.html"><div class="step active">1</div></a>
+        <div class="connector"></div>
+        <a href=""><div class="step">2</div></a>
+        <div class="connector"></div>
+        <a href=""><div class="step">3</div></a>
+        <div class="connector"></div>
+        <a href=""><div class="step">4</div></a>
+    </div>
+</div>
+
+
+
+<div class="container">
+
+    <form action="placanje4.html" id="myForm">
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">Informacije: </h3>
+
+                <div class="inputBox">
+                    <span>Ime: *</span>
+                    <input type="text" id="ime" placeholder="" required>
+                </div>
+                <div class="inputBox">
+                    <span>Prezime: *</span>
+                    <input type="text" id="prezime" placeholder="" required>
+                </div>
+                <div class="inputBox">
+                    <span>Email: *</span>
+                    <input type="email" id="email" placeholder="example@example.com" required oninput="validateEmail()">
+                    <span id="emailError" style="color: red;"></span>
+                </div>                
+                
+                <div class="inputBox">
+                    <span>Grad: *</span>
+                    <input type="text" id="grad" placeholder="" required>
+                </div>
+
+                <div class="inputBox">
+                    <span>Ulica i broj: *</span>
+                    <input type="text" id="ulica" placeholder="" required>
+                </div>
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>Kontakt telefon: *</span>
+                        <input type="text" id="broj" placeholder="" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>Postanski broj: *</span>
+                        <input type="text" id="postanskibroj" placeholder="" required>
+                    </div>
+                </div>                
+
+            </div>
+
+        </div>
+
+        
+        <button type="submit" class="submit-btn">Nastavite</button>
+      
+       
+        
+
+    </form>
+
+</div>   
+
+<script>
+    function validateEmail() {
+        var email = document.getElementById("email").value;
+        var emailError = document.getElementById("emailError");
+        var allowedDomains = ["hotmail.com", "gmail.com", "yahoo.com", "outlook.com", "icloud.com"];
+        var domain = email.substring(email.lastIndexOf("@") + 1);
+    
+        if (allowedDomains.indexOf(domain) === -1) {
+            emailError.textContent = "Molimo unesite validnu Email adresa";
+        } else {
+            emailError.textContent = "";
+        }
+    }
+    </script>
+    
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from actually submitting.
+
+        // Get the form data
+        const ime = document.getElementById("ime").value;
+        const prezime = document.getElementById("prezime").value;
+        const email = document.getElementById("email").value;
+        const grad = document.getElementById("grad").value;
+        const ulica = document.getElementById("ulica").value;
+        const broj = document.getElementById("broj").value;
+        const postanskibroj = document.getElementById("postanskibroj").value;
+
+        // Store the data in local storage
+        localStorage.setItem("ime", ime);
+        localStorage.setItem("prezime", prezime);
+        localStorage.setItem("email", email);
+        localStorage.setItem("grad", grad);
+        localStorage.setItem("ulica", ulica);
+        localStorage.setItem("broj", broj);
+        localStorage.setItem("postanskibroj", postanskibroj);
+
+        window.location.href = "placanje2.html";
+    });
+</script>
+
+<footer class="footer">
+    <div class="aa">
+    <img src="footer i glarija/small.png" alt="Logo" class="aaa">
+    <p class="aaaa" >Junior Eko Termik - d.o.o. Jelah-općina Tešanj, privatno preduzeće osnovano 2001.godine. Sve potrebne informacije možete dobiti putem kontakt informacija.</p>
+    </div>
+    
+    <div class="b">
+    <p class="bb">KONTAKTI</p>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-telephone"></i></div>
+        <div class="bbbbb">032/663-064</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-envelope-open"></i></div>
+        <div class="bbbbb">jet@bih.net.ba</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-geo-alt-fill"></i></div>
+        <div class="bbbbb">Vukovo 172 Jelah 74264 Tešanj</div>
+    </div>
+    <div class="bbb">
+        <div class="bbbb"><i class="bi bi-telephone-x"></i></div>
+        <div class="bbbbb">032/663-064</div>
+    </div>
+    </div>
+    
+    <div class="c">
+        <p class="cc">SITE MAPA</p>
+        <a href="index.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Početna</button></a>
+        <a href="online.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Online Prodaja</button></a>
+        <a href="proizvodi.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Proizvodi</button></a>
+        <a href="reference.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Reference</button></a>
+        <a href="kontakt.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Kontakt</button></a>
+        </div>
+    
+    <div class="column d">
+        <p class="dd">GALERIJA</p>
+         <div class="ddd">
+             <div class="dddd">
+                 <img src="footer i glarija/1 (2).jpg" alt="" onclick="openLightbox(0)" style="cursor: pointer; max-width: 100%;
+                 height: auto;">
+    
+             </div>
+             <div class="dddd">
+                 <img src="footer i glarija/2 (1).jpg" alt="" onclick="openLightbox(1)" style="cursor: pointer; max-width: 100%;
+                 height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/33.jpg" alt="" onclick="openLightbox(2)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/44.jpg" alt="" onclick="openLightbox(3)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                <img src="footer i glarija/55.jpg" alt="" onclick="openLightbox(4)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+             </div>
+             <div class="dddd">
+                 <img src="footer i glarija/66.jpg" alt="" onclick="openLightbox(5)" style="cursor: pointer;max-width: 100%;
+                 height: auto;">
+             </div>
+         </div>
+     </div>
+    
+    <div id="lightbox">
+    <span id="close-button" onclick="closeLightbox()">&#10006;</span>
+    <span id="prev" onclick="changeImage(-1)">&#10094;</span>
+    <img id="lightbox-image" src="" alt="">
+    <span id="next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+    
+    <script>
+      let currentImageIndex = 0;
+    const images = [
+    "footer i glarija/1.jpg",
+    "footer i glarija/2.jpg",
+    "footer i glarija/3.jpg",
+    "footer i glarija/4.jpg",
+    "footer i glarija/5.jpg",
+    "footer i glarija/6.jpg"
+    ];
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    
+    function openLightbox(index) {
+    currentImageIndex = index;
+    lightbox.style.display = "flex";
+    lightboxImage.src = images[index];
+    }
+    
+    function closeLightbox() {
+    lightbox.style.display = "none";
+    }
+    
+    function changeImage(step) {
+    currentImageIndex += step;
+    if (currentImageIndex < 0) {
+        currentImageIndex = images.length - 1;
+    } else if (currentImageIndex >= images.length) {
+        currentImageIndex = 0;
+    }
+    lightboxImage.src = images[currentImageIndex];
+    }
+    </script>
+    </footer>
+    
+</body>
+<script src="cart.js"></script>
+</html>

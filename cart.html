@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JET - Junior Eko Termik</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+  <style>
+  *{
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 25px;
+        }
+
+        .logo img {
+            max-width: 80%;
+            height: auto;
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            padding-top: 20px;
+        }
+        nav ul li a:hover{
+            color: #1674D1;
+            transition: 0.3s;
+        }
+        .pocetna {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .proizvodi {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .reference {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        .kontakti {
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li:first-child {
+            margin-left: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .korpa{
+            color: rgb(0, 0, 0);
+            width: 50px;
+            font-size: 30px;
+        }
+        .cartAmount{
+            font-size: 14px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            padding: 3px;
+            border-radius: 3px;
+        }
+
+      
+     
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0px;
+            height: 100%;
+            width: 250px;
+            background-color: rgb(255, 255, 255);
+            transition: left 0.5s ease;
+            z-index: 1;
+            padding-top: 10px;
+        }
+
+        .menu-icon {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #000000;
+            display: none;
+        }
+
+        .menu-icon:focus {
+            outline: none;
+        }
+
+        .menu-button {
+            display: block;
+            text-decoration: none;
+            color: #000000;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+               right: 90px;
+               top: 47px;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+       
+
+        }
+
+        @media screen and (max-width: 865px) {
+    
+    .logo img {
+        max-width: 80%;
+        padding-left:0;
+}
+.cartAmount{
+    font-size: 14px;
+}
+}  
+
+    @media (max-width: 1200px) {
+header li {
+    display: none;
+}
+header .menu-icon {
+    display: block;
+
+}
+}
+
+
+@media (max-width: 450px) {
+        .korpa {
+            font-size:28px;
+        }
+        .menu-icon{
+            font-size: 20px;
+        }
+        .cartAmount{
+            top: 35px;
+            right: 38px;
+            
+        }
+    }
+
+
+ 
+  
+  .shop {
+    display: grid;
+    grid-template-columns: repeat(4, 223px);
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
+  
+  .price-quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    font-size: 16px;
+  }
+  
+ 
+  .bi-dash-lg {
+    color: black;
+  }
+  
+  .bi-plus-lg {
+    color: black;
+  }
+  /**
+  * ! style rules for label and some buttons
+  **/
+  
+  .text-center {
+   background-color:#282828;
+   padding: 40px;
+   margin-top: 15px;
+  }
+  
+  .HomeBtn,
+  .checkout,
+  .removeAll,
+  .shopmore {
+    background-color: #282828;
+    color: #282828;
+    border: none;
+    padding: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+   
+  }
+  
+  .checkout {
+    background-color: #f2f2f2;
+    height: 50px;
+    width: 180px;
+  }
+  .removeAll {
+    background-color:#f2f2f2;
+    height: 50px;
+    width: 180px;
+  }
+.shopmore{
+  background-color: #f2f2f2;
+    height: 50px;
+    width: 180px;
+}
+  .bi-x-lg {
+    color: black;
+    font-weight: bold;
+  }
+  
+  /**
+  * ! style rules for shopping-cart
+  **/
+  
+  .shopping-cart {
+    display: grid;
+    grid-template-columns: repeat(1, 320px);
+    gap: 15px;
+    text-align: end;
+  
+
+  }
+
+
+  .total-amount {
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+.checkoutt{
+  margin-bottom: 15px;
+}
+
+
+
+.footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #282828;
+            color: #989898;
+            padding: 80px;
+        }
+        
+        @media screen and (max-width: 1180px) {
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 60px;
+            }
+            .footer > div {
+                margin-bottom: 20px;
+            }
+            .footer .c {
+                margin-left: 0;
+            }
+        }
+        @media screen and (max-width: 380px) {
+        .ddd .dddd {
+            width: 60px; 
+            height: 60px; 
+        
+        }
+}
+        
+        .aaa {
+            width: 50px;
+            height: 50px;
+            
+        }
+        .aaaa {
+            width: 280px;
+            color: white;
+            color: #989898;
+            line-height: 27px;
+            margin-top: 20px;
+        }
+        
+        .bb {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+            line-height: 40px;
+        }
+        .bbb {
+            display: flex;
+            align-items: center;
+            margin-top: 12px;
+        }
+        .bbbb {
+            flex: 1;
+        }
+        .bbbbb {
+            flex: 2;
+        }
+        .c {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            margin-left: 60px;
+            line-height: 35px;
+        }
+        .cc {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 20px;
+            
+        }
+        .ccc {
+            background-color: transparent;
+            color: #989898;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 0;
+            border: none;
+        }
+        .ccc:hover {
+            color: #1674D1;
+        }
+        .d {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+        .dd {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .dddd {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+        }
+        .ddd {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        @media screen and (max-width: 380px) {
+      
+        .aaaa{
+            width: 250px;
+        }
+        
+}
+
+
+        #lightbox {
+          display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            text-align: center;
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            display: block;
+        }
+        #close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+        }
+        #prev, #next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            cursor: pointer;
+        }
+        #prev {
+            left: 10px;
+        }
+        #next {
+            right: 10px;
+        }
+
+
+      
+
+
+
+
+
+
+        .containerr{
+            border: 0.5px solid black; 
+            display: flex; 
+            width: 2000px; 
+            height: 100%;  
+            background-color: #f8f8f8;
+            display: flex;
+            margin-left: 25px;
+  
+        }
+        .image{
+            flex: 1;
+        }
+        .productimage{
+            margin: 0; 
+            padding: 0; 
+            width: 360px; 
+            height: 100%;
+        }
+        .html-code{
+            flex: 4;
+        }
+        .item{
+            padding: 0;
+        }
+        .details{
+            padding: 0;
+        }
+        .bi-x-lg{
+            background-color:  #282828; 
+            color:white;
+        }
+
+        .productname{
+            margin-top:-10px; 
+            background-color:  #282828; 
+            height: 45px; color: white; 
+            text-align: center; 
+            padding-top: 4px; 
+            font-size:16px;
+        }
+        .price-quantity{
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            font-size:10px; 
+            padding-bottom:20px; 
+            padding-top:20px; 
+            color: #282828;
+        }
+        .cijenapojedinacno{
+            padding-bottom: 35px; 
+            font-size:16px;
+        }
+        .green{
+            font-size:15px; 
+            display: inline-flex; 
+            align-items: center; 
+            color: black; 
+            padding: 5px; 
+            margin-top:25px;
+        }
+        .bi-circle-fill{
+            color:#4e8929; 
+            margin-right: 8px;
+        }
+        .online{
+            color: black; 
+            text-align: center;
+        }
+        .ukupnacijena{
+            font-size: 23px; 
+            padding-top:25px;
+        }
+        .totalcijena{
+            text-align: center; 
+            padding-top:60px; 
+            padding-bottom:60px;
+        }
+        .h2totalcijena{
+            color:#f2f2f2;
+        }
+        .checkoutt {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center; 
+    justify-content: center; 
+}
+@media (max-width: 2000px) {
+    .containerr {
+        width: 1855px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1975px) {
+    .containerr {
+        width: 1835px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1950px) {
+    .containerr {
+        width: 1805px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1925px) {
+    .containerr {
+        width: 1780px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1900px) {
+    .containerr {
+        width: 1755px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1875px) {
+    .containerr {
+        width: 1730px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1850px) {
+    .containerr {
+        width: 1705px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1825px) {
+    .containerr {
+        width: 1680px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1800px) {
+    .containerr {
+        width: 1655px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1775px) {
+    .containerr {
+        width: 1630px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1750px) {
+    .containerr {
+        width: 1605px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1725px) {
+    .containerr {
+        width: 1580px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1700px) {
+    .containerr {
+        width: 1555px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1675px) {
+    .containerr {
+        width: 1530px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1650px) {
+    .containerr {
+        width: 1505px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1625px) {
+    .containerr {
+        width: 1480px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1600px) {
+    .containerr {
+        width: 1455px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1575px) {
+    .containerr {
+        width: 1430px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1550px) {
+    .containerr {
+        width: 1400px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1525px) {
+    .containerr {
+        width: 1375px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1500px) {
+    .containerr {
+        width: 1350px;
+        height: 300px;
+        margin-left: 60px;
+    }
+    .productimage{
+            margin: 0; 
+            padding: 0; 
+            width: 300px; 
+        }        
+}
+@media (max-width: 1475px) {
+    .containerr {
+        width: 1331px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1450px) {
+    .containerr {
+        width: 1312px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1425px) {
+    .containerr {
+        width: 1287px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+        @media (max-width: 1400px) {
+    .containerr {
+        width: 1262px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1375px) {
+    .containerr {
+        width: 1238px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .containerr {
+        width: 1212px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1325px) {
+    .containerr {
+        width: 1187px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .containerr {
+        width: 1162px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1275px) {
+    .containerr {
+        width: 1137px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+        @media (max-width: 1250px) {
+    .containerr {
+        width: 1112px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1225px) {
+    .containerr {
+        width: 1087px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .containerr {
+        width: 1062px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1175px) {
+    .containerr {
+        width: 1037px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .containerr {
+        width: 1012px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1125px) {
+    .containerr {
+        width: 987px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .containerr {
+        width: 962px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 1075px) {
+    .containerr {
+        width: 937px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .containerr {
+        width: 912px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1025px) {
+    .containerr {
+        width: 887px;
+        height: 300px;
+        margin-left: 60px;
+    }
+}
+
+
+@media (max-width: 1000px) {
+
+    .checkoutt {
+    flex-direction: column;
+    gap: 0px;
+}
+
+
+    .containerr {
+        width: 862px;
+        height: 180px;
+        margin-left: 60px;
+    }
+    
+
+    .productimage {
+        width: 200px;
+    }
+
+    .cijenapojedinacno {
+        font-size: 12px;
+        padding-bottom: 15px;
+    }
+
+    .price-quantity {
+        font-size: 12px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+
+    .green {
+        font-size: 10px;
+        padding: 5px;
+        margin-top: 10px;
+        margin-bottom: 8px;
+    }
+
+    .ukupnacijena {
+        font-size: 17px;
+        padding-top: 5px;
+    }
+
+    .productname {
+        margin-top: -10px;
+        background-color: #282828;
+        height: 30px;
+        color: white;
+        text-align: center;
+        padding-top: 0px;
+        font-size: 13px;
+    }
+}
+@media (max-width: 975px) {
+    .containerr {
+        width: 837px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 950px) {
+    .containerr {
+        width: 812px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 925px) {
+    .containerr {
+        width: 788px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 900px) {
+    .containerr {
+        width: 763px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 875px) {
+    .containerr {
+        width: 737px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 850px) {
+    .containerr {
+        width: 712px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 825px) {
+    .containerr {
+        width: 687px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 800px) {
+    .containerr {
+        width: 662px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 775px) {
+    .containerr {
+        width: 637px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 750px) {
+    .containerr {
+        width: 612px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 725px) {
+    .containerr {
+        width: 587px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 700px) {
+    .containerr {
+        width: 562px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 675px) {
+    .containerr {
+        width: 537px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 650px) {
+    .containerr {
+        width: 512px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}@media (max-width: 625px) {
+    .containerr {
+        width: 487px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 600px) {
+    .containerr {
+        width: 462px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}@media (max-width: 575px) {
+    .containerr {
+        width: 437px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 550px) {
+    .containerr {
+        width: 412px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 525px) {
+    .containerr {
+        width: 387px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 500px) {
+    .containerr {
+        width: 362px;
+        height: 180px;
+        margin-left: 60px;
+    }
+}
+@media (max-width: 475px) {
+    .containerr {
+        width: 350px;
+        height: 180px;
+        margin-left: 45px;
+    }
+}
+@media (max-width: 450px) {
+    .containerr {
+        width: 340px;
+        height: 180px;
+        margin-left: 22px;
+    }
+    .productname {
+        margin-top: -10px;
+        background-color: #282828;
+        height: 30px;
+        color: white;
+        text-align: center;
+        padding-top: 0px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 425px) {
+    .containerr {
+        width: 335px;
+        height: 180px;
+        margin-left: 10px;
+    }
+}
+@media (max-width: 400px) {
+    .containerr {
+        width: 330px;
+        height: 180px;
+        margin-left: 10px;
+    }
+}
+@media (max-width: 350px) {
+    .containerr {
+        width: 295px;
+        height: 180px;
+        margin-left: 10px;
+    }
+    .productname {
+        margin-top: -10px;
+        background-color: #282828;
+        height: 30px;
+        color: white;
+        text-align: center;
+        padding-top: 0px;
+        font-size: 10px;
+    }
+    .productimage {
+        width: 150px;
+    }
+    .ukupnacijena{
+            font-size: 14px; 
+            padding-top:8px;
+        }
+}
+@media (max-width: 300px) {
+    .containerr {
+        width: 200px;
+        height: 180px;
+        margin-left: 22px;
+    }
+}
+@media (max-width: 250px) {
+    .containerr {
+        width: 150px;
+        height: 180px;
+        margin-left: 22px;
+    }
+}
+@media (max-width: 200px) {
+    .containerr {
+        width: 100px;
+        height: 180px;
+        margin-left: 22px;
+    }
+}
+  </style>
+</head>
+
+<body>
+    
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="frontpage/logo-01%20(1).png" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li class="pocetna"><a href="index.html">POČETNA</a></li>
+                <li class="proizvodi"><a href="proizvodi.html">PROIZVODI</a></li>
+                <li class="reference"><a href="reference.html">REFERENCE</a></li>
+                <li class="reference"><a href="online.html">ONLINE PRODAJA</a></li>
+                <li class="kontakti"><a href="kontakt.html">KONTAKT</a></li>
+                <a href="cart.html" class="korpa"><i class="bi bi-cart2"></i> <div id="cartAmount" class="cartAmount">0</div> </a>
+                
+            </ul>
+        </nav>
+        <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+        </header>
+        <div class="sidebar" id="mySidebar">
+        <a href="index.html" class="menu-button">POČETNA</a>
+        <a href="proizvodi.html" class="menu-button">PROIZVODI</a>
+        <a href="reference.html" class="menu-button">REFERENCE</a>
+        <a href="kontakt.html" class="menu-button">KONTAKT</a>
+        <a href="online.html" class="menu-button">ONLINE PRODAJA</a>
+        </div>
+
+        <script>
+            function toggleSidebar() {
+                var sidebar = document.getElementById('mySidebar');
+                sidebar.classList.toggle('show');
+                document.body.classList.toggle('sidebar-open');
+            }
+            function closeSidebar() {
+                var sidebar = document.getElementById('mySidebar');
+                sidebar.classList.remove('show');
+                document.body.classList.remove('sidebar-open');
+            }
+            document.addEventListener('click', function(event) {
+                var sidebar = document.getElementById('mySidebar');
+        
+                if (!sidebar.contains(event.target)) {
+                    closeSidebar();
+                }
+            });
+            document.getElementById('mySidebar').addEventListener('click', function(event){
+                event.stopPropagation();
+            });
+            document.querySelector('.menu-icon').addEventListener('click', function(event){
+                event.stopPropagation();
+            });
+        </script>
+
+
+
+  <div class="container">
+    <div class="left-column">
+      <div id="shopping-cart" class="shopping-cart"></div>
+    </div>
+    <div class="right-column">
+      <div id="label" class="text-center"></div>
+      <div id="TotalAmount"></div>
+    </div>
+  </div>
+
+  
+ 
+
+ 
+
+<div style="background-color:white;">. </div>
+<footer class="footer">
+    <div class="aa">
+        <img src="footer i glarija/small.png" alt="Logo" class="aaa">
+        <p class="aaaa" >Junior Eko Termik - d.o.o. Jelah-općina Tešanj, privatno preduzeće osnovano 2001.godine. Sve potrebne informacije možete dobiti putem kontakt informacija.</p>
+    </div>
+
+    <div class="b">
+        <p class="bb">KONTAKTI</p>
+        <div class="bbb">
+            <div class="bbbb"><i class="bi bi-telephone"></i></div>
+            <div class="bbbbb">032/663-064</div>
+        </div>
+        <div class="bbb">
+            <div class="bbbb"><i class="bi bi-envelope-open"></i></div>
+            <div class="bbbbb">jet@bih.net.ba</div>
+        </div>
+        <div class="bbb">
+            <div class="bbbb"><i class="bi bi-geo-alt-fill"></i></div>
+            <div class="bbbbb">Vukovo 172 Jelah 74264 Tešanj</div>
+        </div>
+        <div class="bbb">
+            <div class="bbbb"><i class="bi bi-telephone-x"></i></div>
+            <div class="bbbbb">032/663-064</div>
+        </div>
+    </div>
+
+    <div class="c">
+        <p class="cc">SITE MAPA</p>
+        <a href="index.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Početna</button></a>
+        <a href="online.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Online Prodaja</button></a>
+        <a href="proizvodi.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Proizvodi</button></a>
+        <a href="reference.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Reference</button></a>
+        <a href="kontakt.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Kontakt</button></a>
+        </div>
+
+    <div class="column d">
+       <p class="dd">GALERIJA</p>
+        <div class="ddd">
+            <div class="dddd">
+                <img src="file:///C:/Users/sarav/Downloads/1%20(2).jpg" alt="" onclick="openLightbox(0)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+
+            </div>
+            <div class="dddd">
+                <img src="file:///C:/Users/sarav/Downloads/2%20(1).jpg" alt="" onclick="openLightbox(1)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+            </div>
+            <div class="dddd">
+               <img src="file:///C:/Users/sarav/Downloads/3.jpg" alt="" onclick="openLightbox(2)" style="cursor: pointer;max-width: 100%;
+               height: auto;">
+            </div>
+            <div class="dddd">
+               <img src="file:///C:/Users/sarav/Downloads/4.jpg" alt="" onclick="openLightbox(3)" style="cursor: pointer;max-width: 100%;
+               height: auto;">
+            </div>
+            <div class="dddd">
+               <img src="file:///C:/Users/sarav/Downloads/5.jpg" alt="" onclick="openLightbox(4)" style="cursor: pointer;max-width: 100%;
+               height: auto;">
+            </div>
+            <div class="dddd">
+                <img src="file:///C:/Users/sarav/Downloads/6.jpg" alt="" onclick="openLightbox(5)" style="cursor: pointer;max-width: 100%;
+                height: auto;">
+            </div>
+        </div>
+    </div>
+
+    <div id="lightbox">
+        <span id="close-button" onclick="closeLightbox()">&#10006;</span>
+        <span id="prev" onclick="changeImage(-1)">&#10094;</span>
+        <img id="lightbox-image" src="" alt="">
+        <span id="next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    <script>
+          let currentImageIndex = 0;
+    const images = [
+        "footer i glarija/1.jpg",
+        "footer i glarija/2.jpg",
+        "footer i glarija/3.jpg",
+        "footer i glarija/4.jpg",
+        "footer i glarija/5.jpg",
+        "footer i glarija/6.jpg"
+    ];
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    
+    function openLightbox(index) {
+        currentImageIndex = index;
+        lightbox.style.display = "flex";
+        lightboxImage.src = images[index];
+    }
+    
+    function closeLightbox() {
+        lightbox.style.display = "none";
+    }
+    
+    function changeImage(step) {
+        currentImageIndex += step;
+        if (currentImageIndex < 0) {
+            currentImageIndex = images.length - 1;
+        } else if (currentImageIndex >= images.length) {
+            currentImageIndex = 0;
+        }
+        lightboxImage.src = images[currentImageIndex];
+    }
+    </script>
+</footer>
+</body>
+<script src="cart.js" src="main.js"> </script>
+<script src="main.js"></script>
+</html>

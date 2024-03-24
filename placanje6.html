@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Page 1</title>
+</head>
+<body>
+    <div class="container">
+        <form action="placanje5.html" id="myForm">
+            <!-- Your form inputs -->
+            <div class="inputBox">
+                <span>Ime: *</span>
+                <input type="text" id="ime" placeholder="">
+            </div>
+            <div class="inputBox">
+                <span>Prezime: *</span>
+                <input type="text" id="prezime" placeholder="">
+            </div>
+            <div class="inputBox">
+                <span>Email: *</span>
+                <input type="email" id="email" placeholder="example@example.com">
+            </div>
+            <!-- Other form fields -->
+            <button type="submit" class="submit-btn">Nastavite</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from actually submitting.
+
+            // Get the form data
+            const ime = document.getElementById("ime").value;
+            const prezime = document.getElementById("prezime").value;
+            const email = document.getElementById("email").value;
+
+            // Store the data in local storage
+            localStorage.setItem("ime", ime);
+            localStorage.setItem("prezime", prezime);
+            localStorage.setItem("email", email);
+
+            window.location.href = "placanje5.html";
+        });
+    </script>
+</body>
+</html>
