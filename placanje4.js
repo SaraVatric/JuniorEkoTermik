@@ -550,9 +550,21 @@ generateCartItems();
 
 
 function prepareFormData() {
-  let basket = localStorage.getItem('basket'); // Retrieve the basket as a string
-  document.getElementById('cartDataInput').value = basket; // Set it as the value of the hidden input
+    // Retrieve basket and shopItemsData from Local Storage
+    let basket = JSON.parse(localStorage.getItem('basket')) || [];
+    let shopItemsData = JSON.parse(localStorage.getItem('shopItemsData')) || [];
+
+    // Format cart data as a readable string
+    let cartDataString = basket.map(x => {
+        let { id, item } = x;
+        let search = shopItemsData.find(y => y.id === id) || {};
+        return `${search.name} - Kolicina: ${item}, Cijena: ${search.price} KM, Ukupna Cijena: ${item * search.price} KM`;
+    }).join("\n");
+
+    // Set the formatted string as the value of the hidden input
+    document.getElementById('cartDataInput').value = cartDataString;
 }
+
 
 
   
