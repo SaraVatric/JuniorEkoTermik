@@ -520,9 +520,33 @@ generateCartItems();
   generateCartItems();
   localStorage.setItem("data", JSON.stringify(basket));
   };
+
+
   
-  
-  
+  function saveUserInfo(event) {
+    // Prevent the default form submission behavior if necessary
+    // event.preventDefault(); // Uncomment this if you handle navigation programmatically
+
+    const userInfo = {
+        ime: document.getElementById('ime').value,
+        prezime: document.getElementById('prezime').value,
+        email: document.getElementById('email').value,
+        grad: document.getElementById('grad').value,
+        ulica: document.getElementById('ulica').value,
+        broj: document.getElementById('broj').value,
+        postanskibroj: document.getElementById('postanskibroj').value
+    };
+
+    // Save userInfo to Local Storage
+    localStorage.setItem('userInfo', JSON.stringify(userInfo));
+
+    // Optionally handle navigation here if you prevented the default behavior
+    // window.location.href = 'placanje4.html';
+}
+
+
+
+
   let updateCartDataForSubmission = () => {
     let cartDataString = basket.map(x => {
         let { id, item } = x;
@@ -550,32 +574,27 @@ generateCartItems();
 
 
 function prepareFormData() {
-    // Retrieve basket and shopItemsData from Local Storage
     let basket = JSON.parse(localStorage.getItem('basket')) || [];
     let shopItemsData = JSON.parse(localStorage.getItem('shopItemsData')) || [];
+    let userInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
 
-    // Format cart data as a readable string
+    // Format cart data
     let cartDataString = basket.map(x => {
         let { id, item } = x;
         let search = shopItemsData.find(y => y.id === id) || {};
-        return `${search.name} - Kolicina: ${item}, Cijena: ${search.price} KM, Ukupna Cijena: ${totalAmount} KM`;
+        return `${search.name} - Kolicina: ${item}, Cijena: ${search.price} KM, Ukupna Cijena: ${item * search.price} KM`;
     }).join("\n");
 
-   const userInfo = {
-        ime: localStorage.getItem("ime"),
-        prezime: localStorage.getItem("prezime"),
-        email: localStorage.getItem("email"),
-        grad: localStorage.getItem("grad"),
-        ulica: localStorage.getItem("ulica"),
-        broj: localStorage.getItem("broj"),
-        postanskibroj: localStorage.getItem("postanskibroj")
-    };
+    // Format user information
+    let userInfoString = `Informacije:\nIme: ${userInfo.ime}\nPrezime: ${userInfo.prezime}\nEmail: ${userInfo.email}\nGrad: ${userInfo.grad}\nUlica i broj: ${userInfo.ulica}\nKontakt telefon: ${userInfo.broj}\nPostanski broj: ${userInfo.postanskibroj}`;
 
-    let combinedData = `Informacije o kupcu:\n${JSON.stringify(userInfo, null, 2)}\n\nSadrzaj Korpe:\n${cartDataString}`;
+    // Combine user info and cart data
+    let formDataString = userInfoString + "\n\n" + "Detalji narudžbe:\n" + cartDataString;
 
-    // Set the formatted string as the value of the hidden input
-    document.getElementById('cartDataInput').value = cartDataString;
+    // Set the combined string as the value of the hidden input
+    document.getElementById('cartDataInput').value = formDataString;
 }
+
 
 
 
