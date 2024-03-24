@@ -602,7 +602,7 @@ let shopItemsData = JSON.parse(localStorage.getItem('shopItemsData')) || [];
         label.innerHTML = `
             <div class="totalcijena">
                 <h2 class="h2totalcijena">Ukupna Cijena: ${totalAmount} KM</h2>
-                <form action="https://formsubmit.co/saravatricc1@gmail.com" method="POST" id="contactForm" onsubmit="prepareFormData()">
+                <form action="https://formsubmit.co/saravatricc1@gmail.com" method="POST" id="contactForm" onsubmit="event.preventDefault(); prepareFormData(); this.submit();">
 
                 <input type="hidden" name="CartData" id="cartDataInput">
 
