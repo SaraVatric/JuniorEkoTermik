@@ -558,7 +558,7 @@ function prepareFormData() {
     let cartDataString = basket.map(x => {
         let { id, item } = x;
         let search = shopItemsData.find(y => y.id === id) || {};
-        return `${search.name} - Kolicina: ${item}, Cijena: ${search.price} KM, Ukupna Cijena: ${item * search.price} KM`;
+        return `${search.name} - Kolicina: ${item}, Cijena: ${search.price} KM, Ukupna Cijena: ${totalAmount} KM`;
     }).join("\n");
 
     // Set the formatted string as the value of the hidden input
