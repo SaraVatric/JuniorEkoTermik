@@ -557,6 +557,7 @@ function prepareFormData() {
     let basket = JSON.parse(localStorage.getItem('basket')) || [];
     let shopItemsData = JSON.parse(localStorage.getItem('shopItemsData')) || [];
     let userInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
+    let shippingOption = localStorage.getItem('shippingOption') || 'Not selected';
 
     // Format cart data
     let cartDataString = basket.map(x => {
@@ -568,8 +569,11 @@ function prepareFormData() {
     // Format user information
     let userInfoString = `Informacije:\nIme: ${userInfo.ime}\nPrezime: ${userInfo.prezime}\nEmail: ${userInfo.email}\nGrad: ${userInfo.grad}\nUlica i broj: ${userInfo.ulica}\nKontakt telefon: ${userInfo.broj}\nPostanski broj: ${userInfo.postanskibroj}`;
 
-    // Combine user info and cart data
-    let formDataString = userInfoString + "\n\n" + "Detalji narudžbe:\n" + cartDataString;
+    // Append shipping option
+    let shippingOptionString = `Izabrani način isporuke: ${shippingOption}`;
+
+    // Combine user info, cart data, and shipping option
+    let formDataString = userInfoString + "\n\n" + "Detalji narudžbe:\n" + cartDataString + "\n\n" + shippingOptionString;
 
     // Set the combined string as the value of the hidden input
     document.getElementById('cartDataInput').value = formDataString;
