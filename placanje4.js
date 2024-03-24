@@ -563,11 +563,11 @@ function prepareFormData() {
     let cartDataString = basket.map(x => {
         let { id, item } = x;
         let search = shopItemsData.find(y => y.id === id) || {};
-        return `${search.name} - Kolicina: ${item}, Cijena: ${search.price} KM, Ukupna Cijena: ${item * search.price} KM`;
+        return `${search.name}\n Kolicina: ${item}\n Cijena: ${search.price} KM\n Ukupna Cijena: ${item * search.price} KM`;
     }).join("\n");
 
     // Format user information
-    let userInfoString = `Informacije:\nIme: ${userInfo.ime}\nPrezime: ${userInfo.prezime}\nEmail: ${userInfo.email}\nGrad: ${userInfo.grad}\nUlica i broj: ${userInfo.ulica}\nKontakt telefon: ${userInfo.broj}\nPostanski broj: ${userInfo.postanskibroj}`;
+    let userInfoString = `Informacije o Kupcu:\nIme: ${userInfo.ime}\nPrezime: ${userInfo.prezime}\nEmail: ${userInfo.email}\nGrad: ${userInfo.grad}\nUlica i broj: ${userInfo.ulica}\nKontakt telefon: ${userInfo.broj}\nPostanski broj: ${userInfo.postanskibroj}`;
 
     // Append shipping option
     let shippingOptionString = `Izabrani način isporuke: ${shippingOptionDisplay}`;
