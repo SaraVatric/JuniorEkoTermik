@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .galerija{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img class="galerija" src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/footer%20i%20glarija/1.jpg" alt="">
+    <img class="galerija" src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/footer%20i%20glarija/2.jpg" alt="">
+    <img class="galerija" src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/footer%20i%20glarija/3.jpg" alt="">
+    <img class="galerija" src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/footer%20i%20glarija/4.jpg" alt="">
+    <img class="galerija" src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/footer%20i%20glarija/5.jpg" alt="">
+    <img class="galerija" src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/footer%20i%20glarija/6.jpg" alt="">
+</body>
+</html>

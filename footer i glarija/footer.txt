@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #282828;
+            color: #989898;
+            padding: 80px;
+        }
+        
+        @media screen and (max-width: 1100px) {
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 80px;
+            }
+            .footer > div {
+                margin-bottom: 20px;
+            }
+            .footer .c {
+                margin-left: 0;
+            }
+        }
+        @media screen and (max-width: 380px) {
+        .ddd .dddd {
+            width: 60px; 
+            height: 60px; 
+        
+        }
+}
+        
+        .aaa {
+            width: 50px;
+            height: 50px;
+            margin-top: 20px;
+            
+        }
+        .aaaa {
+            width: 280px;
+            color: white;
+            color: #989898;
+        }
+        .bb {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .bbb {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .bbbb {
+            flex: 1;
+        }
+        .bbbbb {
+            flex: 2;
+        }
+        .c {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            margin-left: 30px;
+        }
+        .cc {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .ccc {
+            background-color: transparent;
+            color: #989898;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 0;
+            border: none;
+        }
+        .ccc:hover {
+            color: #1674D1;
+        }
+        .d {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+        .dd {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .dddd {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+        }
+        .ddd {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="aa">
+            <img src="file:///C:/Users/sarav/OneDrive/Desktop/logo-footer.png" alt="Logo" class="aaa">
+            <p class="aaaa" >Junior Eko Termik - d.o.o. Jelah-općina Tešanj, privatno preduzeće osnovano 2001.godine. Sve potrebne informacije možete dobiti putem kontakt informacija.</p>
+        </div>
+
+        <div class="b">
+            <p class="bb">KONTAKTI</p>
+            <div class="bbb">
+                <div class="bbbb"><i class="bi bi-telephone"></i></div>
+                <div class="bbbbb">032/663-064</div>
+            </div>
+            <div class="bbb">
+                <div class="bbbb"><i class="bi bi-envelope-open"></i></div>
+                <div class="bbbbb">jet@bih.net.ba</div>
+            </div>
+            <div class="bbb">
+                <div class="bbbb"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="bbbbb">Vukovo 172 Jelah 74264 Tešanj</div>
+            </div>
+            <div class="bbb">
+                <div class="bbbb"><i class="bi bi-telephone-x"></i></div>
+                <div class="bbbbb">032/663-064</div>
+            </div>
+        </div>
+
+        <div class="c">
+            <p class="cc">SITE MAPA</p>
+            <button class="ccc"><i class="bi bi-arrow-right"></i> Početna</button>
+            <button class="ccc"><i class="bi bi-arrow-right"></i> Proizvodi</button>
+            <button class="ccc"><i class="bi bi-arrow-right"></i> Reference</button>
+            <button class="ccc"><i class="bi bi-arrow-right"></i> Kontakt</button>
+        </div>
+
+        <div class="column d">
+            <p class="dd">GALERIJA</p>
+            <div class="ddd">
+                <div class="dddd">
+                    <img src="file:///C:/Users/sarav/Downloads/1%20(2).jpg" alt="">
+                </div>
+                <div class="dddd">
+                    <img src="file:///C:/Users/sarav/Downloads/2%20(1).jpg" alt="">
+                </div>
+                <div class="dddd">
+                    <img src="file:///C:/Users/sarav/Downloads/3.jpg" alt="">
+                </div>
+                <div class="dddd">
+                    <img src="file:///C:/Users/sarav/Downloads/4.jpg" alt="">
+                </div>
+                <div class="dddd">
+                    <img src="file:///C:/Users/sarav/Downloads/5.jpg" alt="">
+                </div>
+                <div class="dddd">
+                    <img src="file:///C:/Users/sarav/Downloads/6.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
