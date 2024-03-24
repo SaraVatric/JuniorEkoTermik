@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JET - Junior Eko Termik</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+
+
+body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: white; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 25px;
+        }
+        
+        .logo img {
+            max-width: 100%;
+            height: auto;
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .pocetna{
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+        .proizvodi{
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+        .reference{
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+        .kontakti{
+            padding-right: 30px;
+            font-family: "Lato", sans-serif;
+        }
+        
+        nav ul li {
+            margin-left: 20px; 
+        }
+        
+        nav ul li:first-child {
+            margin-left: 0; 
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: black; 
+            font-weight: bold; 
+            font-size: 16px; 
+        }
+        nav ul li a:hover{
+            color: #1674D1;
+        }
+        
+        .menu-icon {
+            display: none; 
+            cursor: pointer;
+            color: black; 
+            font-size: 24px; 
+        }
+        
+@media (max-width: 865px) {
+    .menu-icon {
+        display: block; 
+    }
+    nav {
+        display: none; 
+    }
+}
+
+
+.sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0px;
+            height: 100%;
+            width: 250px;
+            background-color: white;
+            transition: left 0.5s ease;
+            z-index: 1;
+            padding-top: 10px;
+        }
+
+        .menu-icon {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+        }
+
+        .menu-icon:focus {
+            outline: none;
+        }
+
+        .menu-button {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 865px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 40px;
+                right: 20px;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+        }
+
+
+        .containercetiri {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-image: url("file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/frontpage/istockphoto-1160713618-612x612.jpg");
+            flex-grow: 1;
+            width: 100%;
+            background-size: cover;
+            background-position: center; 
+            height: auto;
+        }
+
+        .fourth {
+            flex: 1; 
+            padding: 20px;
+            text-align: center;
+            order: 2; 
+        }
+
+        .istegnuti{
+            font-size: 35px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: #1674D1;
+            font-family: "Lato", sans-serif;
+        }
+
+        .poluproizvod{
+            font-size: 19px;
+            color: #999999;
+            font-family: "Lato", sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 55px;
+            text-align: left;
+            margin: 40px;
+        }
+
+        .kontaktirajte{
+            height: 55px;
+            width: 200px;
+            color: #1674D1;
+            background-color: transparent;
+            border-color: #1674D1;
+            border-style: solid;
+            font-weight: bold; 
+        }
+        .kontaktirajte:hover{
+            cursor: pointer;
+            background-color: #1674D1;
+            color: white;
+        }
+
+        .collage {
+        max-width: 550px; 
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-bottom: 30px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .col {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .col.large {
+        flex: 2;
+    }
+
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+@media (max-width: 768px) {    
+    .fourth {
+        flex: auto;
+        width: 100%;
+        text-align: center;
+        order: 2; 
+    }
+    .collage{
+        flex: auto;
+        width: 100%;
+        text-align: center;
+        order: 1; 
+        margin: 0 auto;
+    }
+}
+
+.footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background-color: #282828;
+            color: #989898;
+            padding: 80px;
+        }
+        
+        @media screen and (max-width: 1100px) {
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 80px;
+            }
+            .footer > div {
+                margin-bottom: 20px;
+            }
+            .footer .c {
+                margin-left: 0;
+            }
+        }
+        @media screen and (max-width: 380px) {
+        .ddd .dddd {
+            width: 60px; 
+            height: 60px; 
+        
+        }
+}
+        
+        .aaa {
+            width: 50px;
+            height: 50px;
+            margin-top: 20px;
+            
+        }
+        .aaaa {
+            width: 280px;
+            color: white;
+            color: #989898;
+        }
+        .bb {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .bbb {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .bbbb {
+            flex: 1;
+        }
+        .bbbbb {
+            flex: 2;
+        }
+        .c {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            margin-left: 30px;
+        }
+        .cc {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .ccc {
+            background-color: transparent;
+            color: #989898;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 0;
+            border: none;
+        }
+        .ccc:hover {
+            color: #1674D1;
+        }
+        .d {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+        }
+        .dd {
+            font-size: 18px;
+            padding-bottom: 20px;
+            color: white;
+        }
+        .dddd {
+            width: 80px;
+            height: 80px;
+            margin: 5px;
+        }
+        .ddd {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <header>
+        <div class="logo">
+            <img src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/frontpage/logo-01%20(1).png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li class="pocetna"><a href="frontpage.html">POČETNA</a></li>
+                <li class="proizvodi"><a href="proizvodi.html">PROIZVODI</a></li>
+                <li class="reference"><a href="reference.html">REFERENCE</a></li>
+                <li class="kontakti"><a href="kontakt.html">KONTAKT</a></li>
+            </ul>
+        </nav>
+        <button class="menu-icon" onclick="toggleSidebar()">☰</button>
+    </header>
+
+    <div class="sidebar" id="mySidebar">
+        <a href="frontpage.html" class="menu-button">POČETNA</a>
+        <a href="proizvodi.html" class="menu-button">PROIZVODI</a>
+        <a href="reference.html" class="menu-button">REFERENCE</a>
+        <a href="kontakt.html" class="menu-button">KONTAKT</a>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('mySidebar');
+            sidebar.classList.toggle('show');
+            document.body.classList.toggle('sidebar-open');
+        }
+    </script>
+
+
+    <div class="containercetiri">
+        <div class="fourth">
+            <h1 class="istegnuti">ISTEGNUTI METALI</h1>
+            <p class="poluproizvod">
+                Istegnuti metal je poluproizvod u pločama ili trakama od određenog materijala s otvorima koji su mrežasto spojeni bez pletenja ili zavarivanja. Najvažnije osobine istegnutog metala su njegova velika krutost uz malu težinu.Može se krojiti u razne oblike, a da pri tome ne izgubi na čvrstoći ili se raspe sto je prednost u odnosu na druge mrežaste materijale.Materijal od kojeg se izrađuju mreže može biti čelik, aluminij, bakar, Inox... <br>
+                <br>Primjena istegnutog metala je vrlo široka i koristi se:<br>
+                - za izradu gazišta za podove, stepeništa, kod transportnih vozila, građevinskih mašina, kranova,u rudarstvu i sl.<br>
+                - za izradu ograda za vrtove, dvorišta, stambene i industrijske objekte<br>
+                - za izradu dekorativne mreže za fasadu i krovove na industrijskim, privatnim objektima<br>
+                - za dekoraciju spuštenih stropova<br>
+                - za zaštitne mreže na pogonskim remenicama i drugim rotirajućim dijelovima<br>
+                - za sita u mlinarskoj, pekarskoj i prehrambenoj industriji...<br>
+                - u lakoj industriji za zaštitu instrumenata,razne držače i police u garderobama, panoe, za korpe za smeće, otirače i sl.<br>
+                - za palete i kutije za sve vrste transporta robe<br>
+                - u automobilskoj industriji za maske automobila, traktora , za filtere
+                u građevinarstvu kao armaturne mreže, za armaturu na asfaltiranim putevima, podovima tvorničkih hala itd.<br>
+</p>
+            <a href="katalog.pdf"><button class="kontaktirajte">KATALOG</button></a>
+        </div>
+        <div class="collage">
+            <div class="row">
+                <div class="col large">
+                    <img src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/katalog/5.jpg" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/katalog/6.jpg" alt="">
+                </div>
+                <div class="col">
+                    <img src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/katalog/7.jpg" alt="">
+                </div>
+                <div class="col">
+                    <img src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/katalog/8.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="aa">
+            <img src="file:///C:/Users/sarav/OneDrive/Desktop/junior%20eko%20termik/footer%20i%20glarija/small.png" alt="Logo" class="aaa">
+            <p class="aaaa" >Junior Eko Termik - d.o.o. Jelah-općina Tešanj, privatno preduzeće osnovano 2001.godine. Sve potrebne informacije možete dobiti putem kontakt informacija.</p>
+        </div>
+
+        <div class="b">
+            <p class="bb">KONTAKTI</p>
+            <div class="bbb">
+                <div class="bbbb"><i class="bi bi-telephone"></i></div>
+                <div class="bbbbb">032/663-064</div>
+            </div>
+            <div class="bbb">
+                <div class="bbbb"><i class="bi bi-envelope-open"></i></div>
+                <div class="bbbbb">jet@bih.net.ba</div>
+            </div>
+            <div class="bbb">
+                <div class="bbbb"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="bbbbb">Vukovo 172 Jelah 74264 Tešanj</div>
+            </div>
+            <div class="bbb">
+                <div class="bbbb"><i class="bi bi-telephone-x"></i></div>
+                <div class="bbbbb">032/663-064</div>
+            </div>
+        </div>
+
+        <div class="c">
+            <p class="cc">SITE MAPA</p>
+            <a href="frontpage.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Početna</button></a>
+            <a href="proizvodi.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Proizvodi</button></a>
+            <a href="reference.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Reference</button></a>
+            <a href="kontakt.html"><button class="ccc"><i class="bi bi-arrow-right"></i> Kontakt</button></a>
+        </div>
+
+        <div class="column d">
+            <p class="dd">GALERIJA</p>
+             <div class="ddd">
+                 <div class="dddd">
+                     <a href="galerija.html"><img src="file:///C:/Users/sarav/Downloads/1%20(2).jpg" alt=""></a>
+                 </div>
+                 <div class="dddd">
+                     <a href="galerija.html"><img src="file:///C:/Users/sarav/Downloads/2%20(1).jpg" alt=""></a>
+                 </div>
+                 <div class="dddd">
+                     <a href="galerija.html"><img src="file:///C:/Users/sarav/Downloads/3.jpg" alt=""></a>
+                 </div>
+                 <div class="dddd">
+                     <a href="galerija.html"><img src="file:///C:/Users/sarav/Downloads/4.jpg" alt=""></a>
+                 </div>
+                 <div class="dddd">
+                    <a href="galerija.html"><img src="file:///C:/Users/sarav/Downloads/5.jpg" alt=""></a>
+                 </div>
+                 <div class="dddd">
+                     <a href="galerija.html"><img src="file:///C:/Users/sarav/Downloads/6.jpg" alt=""></a>
+                 </div>
+             </div>
+         </div>
+    </footer>
+</body>
+</html>
