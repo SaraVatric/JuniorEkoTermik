@@ -570,7 +570,7 @@ function prepareFormData() {
     let userInfoString = `Informacije:\nIme: ${userInfo.ime}\nPrezime: ${userInfo.prezime}\nEmail: ${userInfo.email}\nGrad: ${userInfo.grad}\nUlica i broj: ${userInfo.ulica}\nKontakt telefon: ${userInfo.broj}\nPostanski broj: ${userInfo.postanskibroj}`;
 
     // Append shipping option
-    let shippingOptionString = `Izabrani način isporuke: ${shippingOption}`;
+    let shippingOptionString = `Izabrani način isporuke: ${shippingOptionDisplay}`;
 
     // Combine user info, cart data, and shipping option
     let formDataString = userInfoString + "\n\n" + "Detalji narudžbe:\n" + cartDataString + "\n\n" + shippingOptionString;
